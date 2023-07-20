@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link href="https://fonts.cdnfonts.com/css/helvetica-neue-55" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dadata-suggestions@1.5"></script>
+    <title>Главная страница</title>
+
+</head>
+<body>
+
+{% block header %}
+<header>
+     <a href="https://samolet.ru/">
+  <img class="logo" src="{% static 'images/smlt_logo_white_ru.png' %}" alt="Лого">
+    </a>
+     <div class="title-container">
+    <h1>Проект подготовлен командой Катарсис</h1>
+  </div>
+  </header>
+{% endblock header %}
+
+{% block content %}
+{% endblock content %}
+
+
+{% block footer %}
+<footer>
+  <div class="footer-container">
+    <div class="company-info">
+      <h3>Название компании</h3>
+      <p>Адрес компании</p>
+      <p>Телефон: +123456789</p>
+      <p>Email: info@example.com</p>
+    </div>
+    <div class="quick-links">
+      <h3>Быстрые ссылки</h3>
+      <ul>
+        <li><a href="{% url 'main_page' %}">Главная</a></li>
+        <li><a href="https://samolet.ru/" target="_blank">О компании</a></li>
+        <li><a href="" target="_blank">Услуги</a></li>
+        <li><a href="/contact" target="_blank">Контакты</a></li>
+      </ul>
+    </div>
+    <div class="social-media">
+      <h3>Мы в социальных сетях</h3>
+      <ul>
+        <li><a href="https://www.youtube.com/channel/UCkCTYCHDaYqHVPWlt7tS5Xg" target="_blank">Youtube</a></li>
+        <li><a href="https://t.me/gk_samolet" target="_blank">Telegram</a></li>
+        <li><a href="https://dzen.ru/samoletru" target="_blank">Dzen</a></li>
+        <li><a href="https://vk.com/samoletru" target="_blank">VK</a></li>
+
+      </ul>
+    </div>
+  </div>
+  <div class="copyright">
+    <p>&copy; ЛЮБАЯ ИНФОРМАЦИЯ, ПРЕДСТАВЛЕННАЯ НА ДАННОМ САЙТЕ, НОСИТ ИСКЛЮЧИТЕЛЬНО ИНФОРМАЦИОННЫЙ ХАРАКТЕР И НИ ПРИ КАКИХ УСЛОВИЯХ НЕ ЯВЛЯЕТСЯ ПУБЛИЧНОЙ ОФЕРТОЙ, ОПРЕДЕЛЯЕМОЙ ПОЛОЖЕНИЯМИ СТАТЬИ 437 ГК РФ. ИНФОРМАЦИЯ ПАО «ГК «САМОЛЕТ», РАСКРЫВАЕМАЯ В СООТВЕТСТВИИ С ПОЛОЖЕНИЕМ О РАСКРЫТИИ ИНФОРМАЦИИ ЭМИТЕНТАМИ ЭМИССИОННЫХ ЦЕННЫХ БУМАГ (УТВ. БАНКОМ РОССИИ 30.12.2014 N 454-П), РАЗМЕЩЕНА НА СТРАНИЦЕ ЦЕНТРА РАСКРЫТИЯ КОРПОРАТИВНОЙ ИНФОРМАЦИИ ИНТЕРФАКС В СЕТИ ИНТЕРНЕТ —
+        <a href="https://e-disclosure.ru/portal/company.aspx?id=36419&attempt=1" target="_blank">ССЫЛКА</a></p>
+  </div>
+</footer>
+{% endblock footer %}
+
+{% block script %}
+<script>
+
+</script>
+{% endblock script %}
+</body>
+</html>

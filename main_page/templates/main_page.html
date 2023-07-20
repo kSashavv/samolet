@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="main_text">
+  <h1>Оценка стоимости квартиры</h1>
+  <h2>Узнайте стоимость квартиры прямо сейчас</h2>
+  <br>
+  <div class="d_form">
+    <form method="post" id="myForm" enctype="multipart/form-data" action="calculate">
+      {% csrf_token %}
+      <div style="display:inline-block; float: left;" class="form_row">
+        <label for="phone_number"></label>
+        <input name="phone_number" id="phone_number" placeholder="Номер телефона" type="tel" pattern="^\+7[1-9]{10}$" required>
+      </div>
+
+      <div style="display:inline-block; " class="form_row">
+        <label for="mail"></label>
+        <input name="mail" id="mail" type="email" placeholder="Email" required>
+      </div>
+
+      <div class="form_row">
+        <div class="form_div">
+          <label for="name"></label>
+        </div>
+        <input name="name" id="name" placeholder="Имя" type="text" required>
+      </div>
+
+      <div style="display:inline-block; float: left;" class="form_row">
+        <div class="form_div">
+          <label for="floor"></label>
+        </div>
+        <input class="floor" name="floor" id="floor" placeholder="Этаж" type="number" min="1" max="100" required>
+      </div>
+
+      <div style="display:inline-block" class="form_row">
+        <div class="form_div">
+          <label for="floor_count"></label>
+        </div>
+        <input class="floor_count" name="floor_count" id="floor_count" placeholder="Этажей в доме" type="number" min="1" max="100" required>
+      </div>
+
+      <div class="form_row">
+        <div class="form_div">
+          <label for="year_of_construction"></label>
+        </div>
+        <input name="year_of_construction" id="year_of_construction" placeholder="Год постройки" type="number" required>
+      </div>
+
+      <div style="display:inline-block; float: left;" class="form_row">
+        <div class="form_div">
+          <label for="rooms_count"></label>
+        </div>
+        <input name="rooms_count" id="rooms_count" placeholder="Кол-во комнат" type="number" min="1" max="100" required>
+      </div>
+
+      <div style="display:inline-block" class="form_row">
+        <div class="form_div">
+          <label for="living_space"></label>
+        </div>
+        <input name="living_space" id="living_space" placeholder="Общая площадь" type="number" required>
+      </div>
+
+      <div class="form_row">
+        <div class="form_div">
+          <label for="metro"></label>
+        </div>
+        <input name="metro" id="metro" placeholder="Метро / МЦК / МЦД" type="text" required>
+      </div>
+
+      <div class="form_row">
+        <div class="form_div">
+          <label for="district"></label>
+        </div>
+        <input id="district" name="district" placeholder="Район" type="text" required>
+      </div>
+      <br>
+      {% if score %}
+      <div class="score">
+        <div class="content">
+          <p class="price">Ваша квартира стоит <span style="font-weight: bold; font-size: 20px;">{{ score }}</span> ₽ за квадратный метр </p>
+          <p class="price"> Общая стоимость квартиры <strong style="font-size: 24px;">{{ full_price }}</strong> ₽ </p>
+        </div>
+      </div>
+      <a href="{% url 'main_page' %}">Попробовать еще раз</a>
+      {% else %}
+      <button type="submit" id="submit" class="btn btn-primary btn-lg">
+        Узнать стоимость квартиры
+      </button>
+      {% endif %}
+
+    </form>
+  </div>
+</div>
+
+<div class="modal fade" id="priceModal" tabindex="-1" aria-labelledby="priceModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="priceModalLabel">
+
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+      </div>
+      <div class="modal-body">
+        <p id="priceValue"></p>
+        <p id="priceValue2"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+
+  {% if score %}
+  // Открываем модальное окно с рассчитанной ценой при наличии значения score
+  let priceModal = new bootstrap.Modal(document.getElementById("priceModal"));
+
+  let priceValue = document.getElementById("priceValue");
+  priceValue.textContent = "Цена: " + "{{ score }}" + " ₽ за квадратный метр. Общая стоимость квартиры: " + "{{ full_price }}" + " ₽";
+
+  priceModal.show();
+  {% endif %}
+</script>
+{% endblock content %}
