@@ -6,75 +6,10 @@
   <h1>Оценка стоимости квартиры</h1>
   <h2>Узнайте стоимость квартиры прямо сейчас</h2>
   <br>
-  <div class="d_form">
-    <form method="post" id="myForm" enctype="multipart/form-data" action="calculate">
-      {% csrf_token %}
-      <div style="display:inline-block; float: left;" class="form_row">
-        <label for="phone_number"></label>
-        <input name="phone_number" id="phone_number" placeholder="Номер телефона" type="tel" pattern="^\+7[1-9]{10}$" required>
-      </div>
-
-      <div style="display:inline-block; " class="form_row">
-        <label for="mail"></label>
-        <input name="mail" id="mail" type="email" placeholder="Email" required>
-      </div>
-
-      <div class="form_row">
-        <div class="form_div">
-          <label for="name"></label>
-        </div>
-        <input name="name" id="name" placeholder="Имя" type="text" required>
-      </div>
-
-      <div style="display:inline-block; float: left;" class="form_row">
-        <div class="form_div">
-          <label for="floor"></label>
-        </div>
-        <input class="floor" name="floor" id="floor" placeholder="Этаж" type="number" min="1" max="100" required>
-      </div>
-
-      <div style="display:inline-block" class="form_row">
-        <div class="form_div">
-          <label for="floor_count"></label>
-        </div>
-        <input class="floor_count" name="floor_count" id="floor_count" placeholder="Этажей в доме" type="number" min="1" max="100" required>
-      </div>
-
-      <div class="form_row">
-        <div class="form_div">
-          <label for="year_of_construction"></label>
-        </div>
-        <input name="year_of_construction" id="year_of_construction" placeholder="Год постройки" type="number" required>
-      </div>
-
-      <div style="display:inline-block; float: left;" class="form_row">
-        <div class="form_div">
-          <label for="rooms_count"></label>
-        </div>
-        <input name="rooms_count" id="rooms_count" placeholder="Кол-во комнат" type="number" min="1" max="100" required>
-      </div>
-
-      <div style="display:inline-block" class="form_row">
-        <div class="form_div">
-          <label for="living_space"></label>
-        </div>
-        <input name="living_space" id="living_space" placeholder="Общая площадь" type="number" required>
-      </div>
-
-      <div class="form_row">
-        <div class="form_div">
-          <label for="metro"></label>
-        </div>
-        <input name="metro" id="metro" placeholder="Метро / МЦК / МЦД" type="text" required>
-      </div>
-
-      <div class="form_row">
-        <div class="form_div">
-          <label for="district"></label>
-        </div>
-        <input id="district" name="district" placeholder="Район" type="text" required>
-      </div>
-      <br>
+  <form action="{% url 'main_page' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+  </form>
       {% if score %}
       <div class="score">
         <div class="content">
