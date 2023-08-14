@@ -21,5 +21,4 @@ from main_page import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.main_page, name='main_page'),
-    path('calculate', views.calculate, name='calculate')
 ]

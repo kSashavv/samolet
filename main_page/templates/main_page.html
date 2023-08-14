@@ -6,16 +6,64 @@
   <h1>Оценка стоимости квартиры</h1>
   <h2>Узнайте стоимость квартиры прямо сейчас</h2>
   <br>
-  <form action="{% url 'main_page' %}" method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
+  <div class="d_form">
+    <form action="{% url 'main_page' %}" method="post">
+      {% csrf_token %}
+
+       <div style="display:inline-block; " class="form_row">
+        <label for="{{ form.phone_number.id_for_label }}"></label>
+        {{ form.phone_number }}
+       </div>
+
+      <div style="display:inline-block;" class="form_row">
+        <label for="{{ form.email.id_for_label }}"></label>
+        {{ form.email }}
+       </div>
+
+      <div class="form_row">
+        <label for="{{ form.first_name.id_for_label }}"></label>
+        {{ form.first_name }}
+       </div>
+
+      <div style="display:inline-block;" class="form_row">
+        <label for="{{ form.floor.id_for_label }}"></label>
+        {{ form.floor }}
+       </div>
+
+      <div style="display:inline-block;" class="form_row">
+        <label for="{{ form.floor_count.id_for_label }}"></label>
+        {{ form.floor_count }}
+       </div>
+
+      <div class="form_row">
+        <label for="{{ form.year_of_construction.id_for_label }}"></label>
+        {{ form.year_of_construction }}
+       </div>
+
+      <div class="form_row">
+        <label for="{{ form.rooms_count.id_for_label }}"></label>
+        {{ form.rooms_count }}
+       </div>
+
+      <div class="form_row">
+        <label for="{{ form.living_space.id_for_label }}"></label>
+        {{ form.living_space }}
+       </div>
+
+      <div class="form_row">
+        <label for="{{ form.metro.id_for_label }}"></label>
+        {{ form.metro }}
+       </div>
+
+      <div class="form_row">
+        <label for="{{ form.district.id_for_label }}"></label>
+        {{ form.district }}
+       </div>
 
       <button type="submit" id="submit" class="btn btn-primary btn-lg">
         Узнать стоимость квартиры
       </button>
-  </form>
-
-
+    </form>
   </div>
 </div>
 

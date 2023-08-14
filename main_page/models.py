@@ -7,7 +7,7 @@ class User(models.Model):
         ('dislike', 'Цена не понравилась'),
     )
 
-    first_name = models.CharField(max_length=100)
+    first_name = models.CharField(max_length=100,)
     email = models.EmailField()
     phone_number = models.CharField(max_length=20)
     apartment_price = models.CharField(max_length=100, null=True)
