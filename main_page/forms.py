@@ -9,13 +9,13 @@ class UserForm(forms.ModelForm):
                   'living_space', 'metro', 'district']
         exclude = ['evolution_type', 'apartment_price', 'price_per_square']
         widgets = {
-            'email': forms.TextInput(attrs={'type': 'email', 'placeholder': 'Email'}),
-            'phone_number': forms.TextInput(attrs={'type': 'tel', 'placeholder': 'Номер телефона'}),
+            'email': forms.TextInput(attrs={'type': 'email', 'placeholder': 'Email',}),
+            'phone_number': forms.TextInput(attrs={'type': 'tel', 'placeholder': 'Номер телефона',}),
             'first_name': forms.TextInput(attrs={'placeholder': 'Имя'}),
             'floor': forms.TextInput(attrs={'type': 'number', 'placeholder': 'Этаж'}),
             'floor_count': forms.TextInput(attrs={'type': 'number', 'placeholder': 'Кол-во Этажей'}),
             'year_of_construction': forms.TextInput(attrs={'type': 'number', 'placeholder': 'Год постройки'}),
-            'rooms_count': forms.TextInput(attrs={'placeholder': 'Кол-во комнат'}),
+            'rooms_count': forms.TextInput(attrs={'placeholder': 'Кол-во комнат', 'type': 'number'}),
             'living_space': forms.TextInput(attrs={'placeholder': 'Площадь'}),
             'metro': forms.TextInput(attrs={'placeholder': 'Метро'}),
             'district': forms.TextInput(attrs={'placeholder': 'Район'}),
