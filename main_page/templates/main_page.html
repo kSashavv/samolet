@@ -10,11 +10,7 @@
     <form action="{% url 'main_page' %}" method="post">
       {% csrf_token %}
       {% for f in form %}
-      {% if f.name == 'floor' or f.name == 'email' or f.name == 'phone_number' or f.name == 'floor_count' %}
-      <div style="display: inline-block;" class="form_row">
-      {% else %}
-      <div class="form_row">
-      {% endif %}
+      <div class="form_row {% if f.name in field_names %}inline-block{% endif %}">
         <label for="{{ f.id_for_label }}"></label>
         {{ f }}
       </div>

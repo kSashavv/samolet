@@ -5,6 +5,9 @@ from main_page.m1_model import load_model
 import pandas as pd
 
 
+field_names = ['phone_number', 'email', 'floor', 'floor_count']
+
+
 def main_page(request):
     if request.method == 'POST':
         form = UserForm(request.POST)
@@ -45,7 +48,8 @@ def main_page(request):
                 'score': str_score,
                 'full_price': str_full_price,
                 'error': True,
-                'form': form
+                'form': form,
+                'field_names': field_names
             }
             return render(request, 'main_page.html', context)
 
@@ -55,7 +59,8 @@ def main_page(request):
         context = {
             'error': False,
             'error_text': 'Вы ввели номер телефона или почту не правильно',
-            'form': form
+            'form': form,
+            'field_names': field_names
         }
 
         return render(request, 'main_page.html', context)
