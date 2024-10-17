@@ -2,4 +2,4 @@ not critical, but needs improvement
 1) Validation (now you can write 1999999 and everything will pass)
 2) write a non-existent floor
 3) The floor can be more than the number of floors
-4) The area and metro may be far apart
+4) The area and underground may be far apart
